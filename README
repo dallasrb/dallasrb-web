@@ -1,0 +1,4 @@
+RECIPES
+["controllers", "core", "email", "extras", "frontend", "gems", "git", "init", "models", "prelaunch", "railsapps", "readme", "routes", "saas", "setup", "testing", "views"]
+PREFERENCES
+{:git=>true, :railsapps=>"none", :dev_webserver=>"unicorn", :prod_webserver=>"unicorn", :database=>"postgresql", :templates=>"erb", :unit_test=>"rspec", :integration=>"rspec-capybara", :fixtures=>"none", :frontend=>"bootstrap", :bootstrap=>"sass", :email=>"sendgrid", :authentication=>"omniauth", :omniauth_provider=>"github", :authorization=>"cancan", :form_builder=>"none", :starter_app=>"admin_app"}
