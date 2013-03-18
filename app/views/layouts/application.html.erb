@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Dallasrb Web" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dallasrb Web" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "Dallas Ruby Brigade" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dallas Ruby Brigade" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -19,16 +19,9 @@
     </div>
     <div id="main" role="main">
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
+        <%= yield %>
+        <footer>
+        </footer>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
   </body>
