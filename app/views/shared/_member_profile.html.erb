@@ -1,0 +1,28 @@
+<div class="media">
+  <span class="pull-left">
+    <img src="<%= gravatar_for(member.email) %>" class="img-circle" />
+  </span>
+
+  <div class="media-body">
+    <h3 class="media-heading"><%= member.name %></h4>
+    <p><%= member.blurb %></p>
+    <ul class="inline">
+      <li>
+        <i class="icon-home"></i>
+        <a href="<%= member.homepage %>">Website</a>
+      </li>
+      <li>
+        <i class="icon-twitter"></i>
+        <a href="<%= twitter_url_for(member.twitter) %>">Twitter</a>
+      </li>
+      <li>
+        <i class="icon-github-alt"></i>
+        <a href="<%= github_url_for(member.github) %>">Github</a>
+      </li>
+      <li>
+        <i class="icon-envelope-alt"></i>
+        <%= mail_to(member.email, "Email") %>
+      </li>
+    </ul>
+  </div>
+</div>
