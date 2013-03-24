@@ -38,7 +38,9 @@
     </li>
   <% else %>
     <li>
-      <%= link_to 'Login', signin_path %>
+      <%= link_to signin_path do %>
+        <i class="icon-github-alt"></i> Login with GitHub
+      <% end %>
     </li>
   <% end %>
 </ul>
