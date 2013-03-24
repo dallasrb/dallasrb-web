@@ -1,0 +1,28 @@
+<%= render "layouts/messages" %>
+<div class="row">
+  <div class="span5">
+    <%= form_for(@member) do |f| %>
+      <fieldset>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :about %>
+        <%= f.text_area :blurb, :rows => 5 %>
+        <%= f.label :twitter %>
+        <div class="input-prepend">
+          <span class="add-on">@</span>
+          <%= f.text_field :twitter %>
+        </div>
+        <%= f.label :github %>
+        <%= f.text_field :github %>
+        <%= f.label :website %>
+        <%= f.text_field :homepage %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <br />
+        <%= f.submit "Save", :class => "btn btn-primary" %>
+        or
+        <%= link_to "Cancel", root_url %>
+      </fieldset>
+    <% end %>
+  </div>
+</div
