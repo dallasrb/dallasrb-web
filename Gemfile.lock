@@ -35,7 +35,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (2.3.0.1)
+    bootstrap-datepicker-rails (1.0.0.2)
+      railties (>= 3.0)
+    bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
     cancan (1.6.9)
@@ -82,6 +84,7 @@ GEM
     font-awesome-sass-rails (3.0.2.2)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    friendly_id (4.0.9)
     guard (1.6.2)
       listen (>= 0.6.0)
       lumberjack (>= 1.0.2)
@@ -232,7 +235,8 @@ PLATFORMS
 DEPENDENCIES
   better_errors (>= 0.6.0)
   binding_of_caller (>= 0.7.1)
-  bootstrap-sass (>= 2.3.0.0)
+  bootstrap-datepicker-rails
+  bootstrap-sass (~> 2.3.1.0)
   cancan (>= 1.6.8)
   capybara (>= 2.0.2)
   coffee-rails (~> 3.2.1)
@@ -240,6 +244,7 @@ DEPENDENCIES
   email_spec (>= 1.4.0)
   figaro (>= 0.5.3)
   font-awesome-sass-rails
+  friendly_id (~> 4.0.9)
   guard
   guard-rspec
   jquery-rails

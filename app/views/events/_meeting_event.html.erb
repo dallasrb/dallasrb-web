@@ -1,20 +1,21 @@
 <div class="row well">
   <div class="span4">
-      <h1>Monthly Meeting</h1>
+      <h1>Monthly Talk</h1>
       <p><i class="icon-time"></i>7PM to 9PM on Tuesday, April 2nd, 2013</p>
-      <p>Speaker: TBA</p>
-      <p>Topic: TBA</p>
+      <p>Speaker: <%= event.speaker %></p>
+      <p>Topic: <%= event.title %></p>
       <p>Venue:<p>
 
       <address>
-        Improving Enterprises<br />
-        16633 Dallas Parkway <br />
-        Suite 110 <br />
-        Dallas, TX 75001
+        <%= address_helper(event.address) %>
       </address>
 
       <p>
-        RSVP <a href="#">here.</a>
+      RSVP <%= link_to "here.", event.rsvp_url %>
+      </p>
+
+      <p>
+       <%= simple_format(event.description) %>
       </p>
   </div>
   <div class="span7">

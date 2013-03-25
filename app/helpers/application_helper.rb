@@ -10,4 +10,8 @@ module ApplicationHelper
   def github_url_for(username)
     "http://github.com/#{username}"
   end
+
+  def is_active_admin_menu_link?(menu_link, controller_name)
+    "active" if controller_name == "admin/#{menu_link}"
+  end
 end

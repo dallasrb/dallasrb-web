@@ -1,0 +1,20 @@
+<% event = @events.first %>
+
+<h1>Past Meetings</h2>
+
+<div class="span12">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Speakers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td><%= link_to event.title, event %></td>
+      <td><%= event.event_date.to_date %></td>
+      <td><%= event.speaker %></td>
+    </tbody>
+  </div>
+</div>

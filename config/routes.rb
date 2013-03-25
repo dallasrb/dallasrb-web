@@ -4,7 +4,20 @@ DallasrbWeb::Application.routes.draw do
   match '/team' => "home#team"
 
   resources :members
-  resources :users, :only => [:index, :show, :edit, :update ]
+  resources :events, :only => [:index, :show] do
+    collection do
+      get "history"
+    end
+  end
+
+  namespace :admin do
+    resources :users, :only => [:index, :show, :edit, :update]
+    resources :events, :only => [:index, :new, :edit, :create, :update, :destroy] do
+      member do
+        get "copy"
+      end
+    end
+  end
 
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signin' => 'sessions#new', :as => :signin

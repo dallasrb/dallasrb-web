@@ -4,12 +4,12 @@ class MembersController < ApplicationController
   end
 
   def edit
-    @member = Member.find_by_id(params[:id])
+    @member = Member.find(params[:id])
     verify_user!
   end
 
   def update
-    @member = Member.find_by_id(params[:id])
+    @member = Member.find(params[:id])
     verify_user!
     if @member.update_attributes(params[:member])
       redirect_to [:edit, @member], :notice => "Profile saved."

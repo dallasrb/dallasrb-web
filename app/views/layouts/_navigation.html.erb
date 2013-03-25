@@ -7,7 +7,7 @@
     <%= link_to "Members", members_path %>
   </li>
   <li>
-    <a href="#">Events</a>
+    <%= link_to "Events", events_path %>
   </li>
 </ul>
 <ul class="nav pull-right">
@@ -25,7 +25,7 @@
       <ul class="dropdown-menu">
         <% if current_user.has_role? :admin %>
           <li>
-          <%= link_to 'Admin', users_path %>
+          <%= link_to 'Admin', admin_users_path %>
           </li>
         <% end %>
         <li>
