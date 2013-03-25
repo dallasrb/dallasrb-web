@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require holder
+//= require bootstrap-datetimepicker
 //= require_tree .
