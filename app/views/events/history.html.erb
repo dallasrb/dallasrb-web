@@ -1,6 +1,4 @@
-<% event = @events.first %>
-
-<h1>Past Meetings</h2>
+<h1>Past Events</h2>
 
 <div class="span12">
   <table class="table table-condensed table-striped">
@@ -12,9 +10,13 @@
       </tr>
     </thead>
     <tbody>
-      <td><%= link_to event.title, event %></td>
-      <td><%= event.event_date.to_date %></td>
-      <td><%= event.speaker %></td>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event %></td>
+          <td><%= event.event_date.to_date %></td>
+          <td><%= event.speaker %></td>
+        </tr>
+      <% end %>
     </tbody>
   </div>
 </div>

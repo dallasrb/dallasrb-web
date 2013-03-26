@@ -1,16 +1,18 @@
 <div class="row well">
   <div class="span4">
-      <h1>Tuesday Hacknight</h1>
+      <h1><%= event.title %></h1>
       <p><i class="icon-time"></i>7PM to 10PM on Tuesday, April 9th, 2013</p>
       <p>Venue:<p>
       <address>
-        The Ginger Man <br />
-        7205 Bishop Rd <br />
-        Plano, TX 75024 </br>
+        <%= address_helper(event.address) %>
       </address>
 
       <p>
-        RSVP <a href="#">here.</a>
+        RSVP <%= link_to "here.", event.rsvp_url %>
+      </p>
+
+      <p>
+       <%= simple_format(event.description) %>
       </p>
   </div>
   <div class="span7">
