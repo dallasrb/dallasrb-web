@@ -40,4 +40,4 @@ gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "figaro", ">= 0.5.3"
 gem 'friendly_id', "~> 4.0.9"
-
+gem 'geocoder'

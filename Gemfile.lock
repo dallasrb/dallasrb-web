@@ -83,6 +83,7 @@ GEM
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
     friendly_id (4.0.9)
+    geocoder (1.1.6)
     guard (1.6.2)
       listen (>= 0.6.0)
       lumberjack (>= 1.0.2)
@@ -242,6 +243,7 @@ DEPENDENCIES
   figaro (>= 0.5.3)
   font-awesome-sass-rails
   friendly_id (~> 4.0.9)
+  geocoder
   guard
   guard-rspec
   jquery-rails

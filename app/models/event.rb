@@ -2,10 +2,12 @@ class Event < ActiveRecord::Base
   extend FriendlyId
   belongs_to :event_type
 
-  attr_accessible :address, :description, :event_date, :event_type_id, :featured, :latitude, :longitude, :rsvp_url, :speaker, :title
+  attr_accessible :address, :description, :event_date, :event_type, :event_type_id, :featured, :latitude, :longitude, :rsvp_url, :speaker, :title
+  geocoded_by :address
   friendly_id :title, use: :slugged
 
   validates_associated :event_type
+  after_validation :geocode, :if => :address_changed?
 
   def self.most_recent(count)
     order("event_date desc").limit(count)
