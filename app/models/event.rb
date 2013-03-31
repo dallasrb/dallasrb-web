@@ -7,11 +7,9 @@ class Event < ActiveRecord::Base
   belongs_to :event_type
 
   attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :featured, :latitude, :longitude, :rsvp_url, :speaker, :title
-  #geocoded_by :address
   friendly_id :title, use: :slugged
 
   validates_associated :event_type
-  #after_validation :geocode, :if => :address_changed?
 
   def geocode?
     (!address.blank? && (latitude.blank? || longitude.blank?)) || address_changed?
