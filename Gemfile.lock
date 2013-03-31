@@ -84,6 +84,7 @@ GEM
       sass-rails (>= 3.1.1)
     friendly_id (4.0.9)
     geocoder (1.1.6)
+    gmaps4rails (2.0.0.pre)
     guard (1.6.2)
       listen (>= 0.6.0)
       lumberjack (>= 1.0.2)
@@ -244,6 +245,7 @@ DEPENDENCIES
   font-awesome-sass-rails
   friendly_id (~> 4.0.9)
   geocoder
+  gmaps4rails (~> 2.0.0.pre)
   guard
   guard-rspec
   jquery-rails

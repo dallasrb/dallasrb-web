@@ -2,3 +2,9 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 @import 'font-awesome';
+#map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}

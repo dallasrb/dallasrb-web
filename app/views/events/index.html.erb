@@ -1,4 +1,9 @@
 <%= render "#{@recent_event.event_type.name}_event", :event => @recent_event %>
 <p>
-<%= link_to "See previous events »", history_events_path %>
+  <%= link_to "See previous events »", history_events_path %>
 </p>
+<% content_for :scripts do %>
+  <script>
+    events.init_map("<%=j marker_for(@recent_event) %>");
+  </script>
+<% end %>

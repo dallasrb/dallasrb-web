@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require holder
 //= require bootstrap-datetimepicker
+//= require gmaps4rails/all
 //= require_tree .
