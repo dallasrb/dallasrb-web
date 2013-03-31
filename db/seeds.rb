@@ -58,7 +58,7 @@ unless Event.find_by_slug("so-you-want-a-content-site-running-on-ruby")
                venue: "Improving Enterprises",
                address: improving,
                speaker: "Chris Krailo, Garrett Heinlen, Matt Rogers, Mark McSpadden, and YOU!",
-               featured: true,
+               published: true,
                rsvp_url: "http://plancast.com/p/gf9g",
                description: <<-EOS.gsub(/^ {6}/, '')
 So you want a content site running on Ruby?

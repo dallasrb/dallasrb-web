@@ -6,7 +6,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :event_type
 
-  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :featured, :latitude, :longitude, :rsvp_url, :speaker, :title
+  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :published, :latitude, :longitude, :rsvp_url, :speaker, :title
   friendly_id :title, use: :slugged
 
   validates_associated :event_type
@@ -15,12 +15,16 @@ class Event < ActiveRecord::Base
     (!address.blank? && (latitude.blank? || longitude.blank?)) || address_changed?
   end
 
+  def self.published
+    where(:published => true)
+  end
+
   def self.most_recent(count)
-    order("event_date desc").limit(count)
+    published.order("event_date desc").limit(count)
   end
 
   def self.past_events(event_type)
-    where(:event_type_id => event_type.id).order("event_date desc")
+    published.where(:event_type_id => event_type.id).order("event_date desc")
   end
 
   # create from an existing event. Key attributes only.

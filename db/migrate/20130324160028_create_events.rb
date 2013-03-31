@@ -12,7 +12,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :address
       t.float :latitude
       t.float :longitude
-      t.boolean :featured
+      t.boolean :published
       t.boolean :gmaps
 
       t.timestamps

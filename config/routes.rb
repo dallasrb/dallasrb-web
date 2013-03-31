@@ -6,7 +6,7 @@ DallasrbWeb::Application.routes.draw do
   resources :members
   resources :events, :only => [:index, :show] do
     collection do
-      get "history"
+      get "current"
     end
   end
 

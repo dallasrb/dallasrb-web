@@ -23,6 +23,10 @@
     <%= f.text_area :address, :class => "input-block-level", :rows => 4 %>
     <%= f.label "Plancast URL" %>
     <%= f.text_field :rsvp_url %>
+    <%= f.label :published, :class => "checkbox" do %>
+      <%= f.check_box :published %>
+      Published
+    <% end %>
     <br />
     <%= f.submit "Save", :class => "btn btn-primary" %>
     or

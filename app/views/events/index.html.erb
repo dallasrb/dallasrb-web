@@ -1,9 +1,22 @@
-<%= render "#{@recent_event.event_type.name}_event", :event => @recent_event %>
-<p>
-  <%= link_to "See previous events »", history_events_path %>
-</p>
-<% content_for :scripts do %>
-  <script>
-    events.init_map("<%=j marker_for(@recent_event) %>");
-  </script>
-<% end %>
+<h1>All Events</h2>
+
+<div class="span12">
+  <table class="table table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Speakers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= link_to event.title, event %></td>
+          <td><%= event.event_date.to_date %></td>
+          <td><%= event.speaker %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </div>
+</div>
