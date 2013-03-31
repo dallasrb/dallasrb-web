@@ -14,4 +14,8 @@ module ApplicationHelper
   def is_active_admin_menu_link?(menu_link, controller_name)
     "active" if controller_name == "admin/#{menu_link}"
   end
+
+  def kramdown(text)
+    sanitize(Kramdown::Document.new(text).to_html)
+  end
 end

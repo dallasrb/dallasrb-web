@@ -46,16 +46,16 @@ end
 puts "PAST MEETINGS"
 event_type = EventType.find_by_name("meeting")
 improving = <<-EOS.gsub(/^ {6}/, '')
-Improving Enterprises
 16633 Dallas Parkway
 Suite 110
 Dallas, TX 75001
 EOS
 
 unless Event.find_by_slug("so-you-want-a-content-site-running-on-ruby")
-  Event.create(title: "So you want a content site running on Ruby?",
+  Event.create!(title: "So you want a content site running on Ruby?",
                event_type: event_type,
                event_date: DateTime.strptime('03/05/2013 19:00', '%m/%d/%Y %H:%M'),
+               venue: "Improving Enterprises",
                address: improving,
                speaker: "Chris Krailo, Garrett Heinlen, Matt Rogers, Mark McSpadden, and YOU!",
                featured: true,
@@ -65,11 +65,11 @@ So you want a content site running on Ruby?
 
 There's an app for that. Several actually.
 
-Garrett Heinlen of Software Allies will show us Refinery CMS: http://refinerycms.com
+Garrett Heinlen of Software Allies will show us [Refinery CMS](http://refinerycms.com).
 
-Matt Rogers of McAfee will show us Jekyll: http://jekyllrb.com
+Matt Rogers of McAfee will show us [Jekyll](http://jekyllrb.com).
 
-Mark McSpadden of Sabre Labs will show us GitHub Pages and Heroku Static Site. (http://pages.github.com & https://github.com/jamiew/heroku-static-site)
+Mark McSpadden of Sabre Labs will show us [GitHub Pages](http://pages.github.com) and [Heroku Static Site](https://github.com/jamiew/heroku-static-site).
 
 And Chris Krailo of Kalkomey will fill in any gaps as they arise.
 

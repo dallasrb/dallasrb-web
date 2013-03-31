@@ -27,10 +27,12 @@ ActiveRecord::Schema.define(:version => 20130324160108) do
     t.text     "description"
     t.string   "slug"
     t.string   "rsvp_url"
+    t.string   "venue"
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "featured"
+    t.boolean  "gmaps"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

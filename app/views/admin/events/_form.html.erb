@@ -11,9 +11,14 @@
     <%= f.label :title %>
     <%= f.text_field :title, :class => "input-block-level" %>
     <%= f.label :description %>
+    <span class="help-block">
+      <a href="http://kramdown.rubyforge.org/quickref.html">(Supports Kramdown Syntax)</a>
+    </span>
     <%= f.text_area :description, :class => "input-block-level", :rows => 15 %>
     <%= f.label :speaker %>
     <%= f.text_field :speaker, :class => "input-block-level" %>
+    <%= f.label :venue %>
+    <%= f.text_field :venue %>
     <%= f.label :address %>
     <%= f.text_area :address, :class => "input-block-level", :rows => 4 %>
     <%= f.label "Plancast URL" %>

@@ -4,7 +4,7 @@
       <p><i class="icon-time"></i><%= event_timestamp(event) %></p>
       <p>Venue:<p>
       <address>
-        <%= address_helper(event.address) %>
+        <%= address_helper(event) %>
       </address>
 
       <p>
@@ -12,7 +12,7 @@
       </p>
 
       <p>
-       <%= simple_format(event.description) %>
+        <%= kramdown(event.description) %>
       </p>
   </div>
   <div class="span7">

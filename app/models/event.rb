@@ -1,15 +1,21 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
-  acts_as_gmappable
+  acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
+  :address => "address", :normalized_address => "address",
+  :msg => "Sorry, not even Google could figure out where that is"
 
   belongs_to :event_type
 
-  attr_accessible :address, :description, :event_date, :event_type, :event_type_id, :featured, :latitude, :longitude, :rsvp_url, :speaker, :title
-  geocoded_by :address
+  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :featured, :latitude, :longitude, :rsvp_url, :speaker, :title
+  #geocoded_by :address
   friendly_id :title, use: :slugged
 
   validates_associated :event_type
-  after_validation :geocode, :if => :address_changed?
+  #after_validation :geocode, :if => :address_changed?
+
+  def geocode?
+    (!address.blank? && (latitude.blank? || longitude.blank?)) || address_changed?
+  end
 
   def self.most_recent(count)
     order("event_date desc").limit(count)
@@ -21,7 +27,10 @@ class Event < ActiveRecord::Base
 
   # create from an existing event. Key attributes only.
   def copy
-    Event.new(:address => address, :event_type_id => event_type_id)
+    Event.new(:venue => venue,
+              :address => address,
+              :event_type_id => event_type_id,
+              :event_date => (event_date + 1.month))
   end
 
   def gmaps4rails_address
