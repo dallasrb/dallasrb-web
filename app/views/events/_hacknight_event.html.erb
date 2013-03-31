@@ -1,7 +1,7 @@
 <div class="row well">
   <div class="span4">
       <h1><%= event.title %></h1>
-      <p><i class="icon-time"></i>7PM to 10PM on Tuesday, April 9th, 2013</p>
+      <p><i class="icon-time"></i><%= event_timestamp(event) %></p>
       <p>Venue:<p>
       <address>
         <%= address_helper(event.address) %>
