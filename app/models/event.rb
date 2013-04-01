@@ -36,6 +36,6 @@ class Event < ActiveRecord::Base
   end
 
   def gmaps4rails_address
-    '[{"lng": "-96.8270373", "lat": "32.9770421", "picture": "", "width": "10", "height": "20"}]'
+    [{:lng => longitude, :lat => latitude, :width => 10, :height => 20}].to_json
   end
 end
