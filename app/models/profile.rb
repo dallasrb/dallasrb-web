@@ -1,4 +1,4 @@
-class Member < ActiveRecord::Base
+class Profile < ActiveRecord::Base
   attr_accessible :email, :homepage, :name, :twitter, :github, :blurb
 
   def self.non_organizers
