@@ -19,7 +19,7 @@
   <div class="span4">
     <h2>Events</h2>
     <p>We welcome everyone to the Dallas.rb events. Come out and ask questions, help answer questions, or just be a part of the conversation.</p>
-    <p><a href="#">Join us at our next event!</a></p>
+    <p><%= link_to "Join us at our next event!", current_events_url %></p>
   </div>
 
   <div class="span4">
@@ -28,7 +28,17 @@
   </div>
 </div>
 
-<%= render "meeting_event" %>
-<%= render "hacknight_event" %>
+<hr />
 
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class"row">
+  <h2>Upcoming</h2>
+</div>
+<%= render "events/#{@current_event.event_type.name}_event", :event => @current_event %>
+
+<% content_for :scripts do %>
+  <script>
+    events.init_map("<%=j marker_for(@current_event) %>");
+  </script>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<% end %>

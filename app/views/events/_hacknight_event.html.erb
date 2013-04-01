@@ -1,0 +1,27 @@
+<div class="well">
+  <div class="row">
+    <div class="span5">
+      <h1><%= event.title %></h1>
+      <p><i class="icon-time"></i><%= event_timestamp(event) %></p>
+      <p><strong>Venue:</strong><p>
+      <%= address_helper(event) %>
+      <p>
+        RSVP <%= link_to "here.", event.rsvp_url %>
+      </p>
+
+    </div>
+    <div class="span5">
+      <%= render 'events/event_map', :event => event %>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="span11">
+      <p>
+        <%= kramdown(event.description) %>
+      </p>
+    </div>
+  </div>
+</div>

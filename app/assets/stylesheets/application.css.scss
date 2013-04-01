@@ -8,6 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require datetimepicker
+ *= require gmaps4rails
  *= require_self
  *= require_tree .
 */
@@ -22,4 +24,9 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+.event_map_container, .event_map {
+  width: 540px;
+  height: 370px;
 }

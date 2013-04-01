@@ -1,0 +1,9 @@
+<%= render "#{@event.event_type.name}_event", :event => @event %>
+<p>
+  <%= link_to "See all events »", events_path %>
+</p>
+<% content_for :scripts do %>
+  <script>
+    events.init_map("<%=j marker_for(@event) %>");
+  </script>
+<% end %>

@@ -23,6 +23,7 @@ group :development, :test do
   gem 'zeus'
   gem 'pry-rails'
   gem 'pry-debugger'
+  gem 'rb-fsevent', '~> 0.9'
 end
 
 group :test do
@@ -31,7 +32,7 @@ group :test do
   gem "email_spec", ">= 1.4.0", :group => :test
 end
 
-gem "bootstrap-sass", ">= 2.3.0.0"
+gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'font-awesome-sass-rails'
 gem "sendgrid", ">= 1.0.1"
 gem "omniauth", ">= 1.1.3"
@@ -39,3 +40,6 @@ gem "omniauth-github"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "figaro", ">= 0.5.3"
+gem 'friendly_id', "~> 4.0.9"
+gem 'gmaps4rails', '~> 2.0.0.pre'
+gem 'kramdown'

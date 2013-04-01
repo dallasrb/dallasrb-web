@@ -1,0 +1,43 @@
+<%= form_for([:admin, @event]) do |f| %>
+  <fieldset>
+    <%= f.label :event_type %>
+    <%= f.select :event_type_id, options_from_collection_for_select(EventType.all, :id, :name, @event.event_type_id), {:include_blank => true} %>
+    <%= f.label :event_date %>
+    <div class="input-append date form_datetime" data-date="<%= @event.event_date.utc.iso8601 %>">
+      <%= f.text_field :event_date, :class => "input-large" %>
+      <span class="add-on"><i class="icon-remove"></i></span>
+      <span class="add-on"><i class="icon-th"></i></span>
+    </div>
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "input-block-level" %>
+    <%= f.label :description %>
+    <span class="help-block">
+      <a href="http://kramdown.rubyforge.org/quickref.html">(Supports Kramdown Syntax)</a>
+    </span>
+    <%= f.text_area :description, :class => "input-block-level", :rows => 15 %>
+    <%= f.label :speaker %>
+    <%= f.text_field :speaker, :class => "input-block-level" %>
+    <%= f.label :venue %>
+    <%= f.text_field :venue %>
+    <%= f.label :address %>
+    <%= f.text_area :address, :class => "input-block-level", :rows => 4 %>
+    <%= f.label "Plancast URL" %>
+    <%= f.text_field :rsvp_url %>
+    <%= f.label :published, :class => "checkbox" do %>
+      <%= f.check_box :published %>
+      Published
+    <% end %>
+    <br />
+    <%= f.submit "Save", :class => "btn btn-primary" %>
+    or
+    <%= link_to "Cancel", admin_events_url %>
+  </fieldset>
+<% end %>
+<script type="text/javascript">
+   $(".form_datetime").datetimepicker({
+     format: "yyyy-MM-dd  HH:ii P",
+     showMeridian: true,
+     autoclose: true,
+     todayBtn: true
+   });
+</script>
