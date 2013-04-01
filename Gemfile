@@ -23,6 +23,7 @@ group :development, :test do
   gem 'zeus'
   gem 'pry-rails'
   gem 'pry-debugger'
+  gem 'rb-fsevent', '~> 0.9'
 end
 
 group :test do
