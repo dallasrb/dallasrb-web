@@ -17,6 +17,7 @@ DallasrbWeb::Application.routes.draw do
         get "copy"
       end
     end
+    resources :profiles, :only => [:index, :update]
   end
 
   match '/auth/:provider/callback' => 'sessions#create'

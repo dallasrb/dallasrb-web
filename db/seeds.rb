@@ -22,7 +22,8 @@ unless Profile.find_by_name("Mark McSpadden")
                          twitter: "markmcspadden",
                          github: "markmcspadden",
                          email: "markmcspadden@gmail.com",
-                         homepage: "http://markmcspadden.net")
+                         homepage: "http://markmcspadden.net",
+                         approved: true)
   profile.make_organizer!
 end
 
@@ -32,7 +33,8 @@ unless Profile.find_by_name("Karthik Hariharan")
                          twitter: "hkarthik",
                          github: "hkarthik",
                          email: "kar.hariharan@gmail.com",
-                         homepage: "http://hkarthik.me")
+                         homepage: "http://hkarthik.me",
+                         approved: true)
   profile.make_organizer!
 end
 
