@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
       end
     end
 
-    unless Member.find_by_email(created_user.email)
-      Member.create! do |member|
-        member.name = created_user.name
-        member.email = created_user.email
+    unless Profile.find_by_email(created_user.email)
+      Profile.create! do |profile|
+        profile.name = created_user.name
+        profile.email = created_user.email
         if auth['info']
-          member.github = auth['info']['nickname']
+          profile.github = auth['info']['nickname']
         end
       end
     end

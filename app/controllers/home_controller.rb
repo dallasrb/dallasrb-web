@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def team
-    @members = Member.organizers
+    @organizers = Profile.organizers
   end
 end
