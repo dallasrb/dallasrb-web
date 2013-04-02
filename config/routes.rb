@@ -3,7 +3,7 @@ DallasrbWeb::Application.routes.draw do
   root :to => "home#index"
   match '/team' => "home#team"
 
-  resources :members
+  resources :profiles
   resources :events, :only => [:index, :show] do
     collection do
       get "current"
@@ -17,6 +17,7 @@ DallasrbWeb::Application.routes.draw do
         get "copy"
       end
     end
+    resources :profiles, :only => [:index, :update]
   end
 
   match '/auth/:provider/callback' => 'sessions#create'

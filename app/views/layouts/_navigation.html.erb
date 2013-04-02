@@ -4,7 +4,7 @@
     <%= link_to "Team", team_path %>
   </li>
   <li>
-    <%= link_to "Members", members_path %>
+    <%= link_to "Members", profiles_path %>
   </li>
   <li>
     <%= link_to "Events", current_events_path %>
@@ -29,7 +29,7 @@
           </li>
         <% end %>
         <li>
-          <%= link_to "Profile", url_for([:edit, Member.find_by_email(current_user.email)]) %>
+          <%= link_to "Profile", url_for([:edit, Profile.find_by_email(current_user.email)]) %>
         </li>
         <li>
           <%= link_to 'Logout', signout_path %>
