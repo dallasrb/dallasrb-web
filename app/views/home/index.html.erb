@@ -1,44 +1,60 @@
-<div class="row">
-  <div class="span12">
+<div class="row-fluid">
+  <div class="span11 offset1">
     <div class="page-header">
       <h1>Dallas.rb</h1>
       <h2>Dallas Ruby Brigade</h2>
-      <p>The Dallas Ruby Brigade has been around since early 2007. We meet every Tuesday evening to present, hack, teach, or learn. </p>
+      <p>The Dallas Ruby Brigade has been around since early 2007. We meet every Tuesday evening to present, hack, teach, or learn about the Ruby programming language. </p>
       <p>There is always food. Sometimes there is beer. All are welcome!</p>
-      <p><a href="https://twitter.com/dallasruby" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @dallasruby</a></p>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="span4">
-    <h2>Mission</h2>
-    <p>To further the use of Ruby among the programmers of the Dallas area.</p>
-  </div>
-
-  <div class="span4">
+<div class="row-fluid">
+  <div class="span3 offset1">
     <h2>Events</h2>
-    <p>We welcome everyone to the Dallas.rb events. Come out and ask questions, help answer questions, or just be a part of the conversation.</p>
-    <p><%= link_to "Join us at our next event!", current_events_url %></p>
+    <p class="call-to-action">We welcome everyone to the Dallas.rb events. Come out and ask questions, help answer questions, or just come to learn.</p>
+    <p>
+      <%= link_to current_events_url, :class => "btn btn-primary btn-large" do %>
+        <i class="icon-bullhorn"></i>
+        Attend our next event
+      <% end %>
+    </p>
   </div>
 
-  <div class="span4">
-    <h2>Participate</h2>
-    <p>For jobs and discussion, we have an active <a href="http://groups.google.com/group/dallasrb">mailing list</a>. And you can follow <a href="http://twitter.com/dallasruby">@dallasruby</a> on twitter.
+  <div class="span3">
+    <h2>Discussion</h2>
+    <p class="call-to-action">For jobs and discussion, we have an active mailing list.</p>
+    <p>
+      <a href="http://groups.google.com/group/dallasrb" class="btn btn-primary btn-large">
+        <i class="icon-comment"></i>
+        Join the conversation
+      </a>
+    </p>
+  </div>
+
+  <div class="span3">
+    <h2>Follow</h2>
+    <p class="call-to-action">Follow us on Twitter for the latest info on our group.</p>
+    <p>
+      <a href="http://groups.google.com/group/dallasrb" class="btn btn-primary btn-large">
+        <i class="icon-twitter"></i>
+        Follow @dallasruby
+      </a>
+    </p>
   </div>
 </div>
 
 <hr />
 
-<div class"row">
-  <h2>Upcoming</h2>
+<div class"row-fluid">
+  <div class="span11 offset1">
+    <h2>Upcoming</h2>
+    <%= render "events/#{@current_event.event_type.name}_event", :event => @current_event %>
+  </div>
 </div>
-<%= render "events/#{@current_event.event_type.name}_event", :event => @current_event %>
 
 <% content_for :scripts do %>
   <script>
     events.init_map("<%=j marker_for(@current_event) %>");
   </script>
-
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <% end %>

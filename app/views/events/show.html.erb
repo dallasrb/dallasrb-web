@@ -1,7 +1,8 @@
-<%= render "#{@event.event_type.name}_event", :event => @event %>
-<p>
-  <%= link_to "See all events »", events_path %>
-</p>
+<div class"row-fluid">
+  <div class="span11 offset1">
+    <%= render "#{@event.event_type.name}_event", :event => @event %>
+  </div>
+</div>
 <% content_for :scripts do %>
   <script>
     events.init_map("<%=j marker_for(@event) %>");

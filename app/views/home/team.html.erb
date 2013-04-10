@@ -1,3 +1,11 @@
-<% @organizers.each do |organizer| %>
-  <%= render 'shared/profile', :profile => organizer %>
-<% end %>
+<div class="row-fluid profile">
+  <div class="span10 offset1">
+    <ul class="media-list">
+      <% @organizers.each do |organizer| %>
+        <li class="media">
+          <%= render 'shared/profile', :profile => organizer %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

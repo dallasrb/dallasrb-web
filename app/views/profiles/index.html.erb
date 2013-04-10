@@ -1,3 +1,20 @@
-<% @profiles.each do |profile| %>
-  <%= render 'shared/profile', :profile => profile %>
-<% end %>
+<div class="row-fluid profile">
+  <div class="span10 offset1">
+    <ul class="media-list">
+      <% @profiles.each do |profile| %>
+        <li class="media">
+      <%= render 'shared/profile', :profile => profile %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <p>Not a member?</p>
+    <%= link_to signin_path, :class => "btn btn-primary btn-large" do %>
+      <i class="icon-github icon-large"></i> Register with GitHub
+    <% end %>
+  </div>
+</div>

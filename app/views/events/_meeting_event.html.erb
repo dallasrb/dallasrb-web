@@ -1,29 +1,41 @@
-<div class="well">
-  <div class="row">
-    <div class="span5">
-      <h1>Monthly Talk</h1>
-      <p><i class="icon-time"></i><%= event_timestamp(event) %></p>
-      <h3><%= event.title %></h3>
-      <p><strong>Speaker(s):</strong> <%= event.speaker %></p>
-      <p><strong>Venue:</strong><p>
-      <%= address_helper(event) %>
-      <p>
-        RSVP <%= link_to "here.", event.rsvp_url %>
-      </p>
+<div class="row-fluid">
+  <div class="span12 well">
+    <div class="row-fluid">
+      <div class="span4">
+        <h2>Monthly Talk</h2>
+        <p><i class="icon-time"></i><%= event_timestamp(event) %></p>
+        <h3><%= event.title %></h3>
+        <p><strong>Speaker(s):</strong> <%= event.speaker %></p>
+        <p><strong>Venue:</strong><p>
+        <%= address_helper(event) %>
+        <p>
+          RSVP <%= link_to "here.", event.rsvp_url %>
+        </p>
+      </div>
+
+      <div class="span4">
+        <%= render 'events/event_map', :event => event %>
+      </div>
     </div>
 
-    <div class="span5">
-      <%= render 'events/event_map', :event => event %>
+    <hr />
+
+    <div class="row-fluid">
+      <div class="span8">
+        <p>
+          <%= kramdown(event.description) %>
+        </p>
+      </div>
     </div>
-  </div>
 
-  <hr />
-
-  <div class="row">
-    <div class="span11">
-      <p>
-        <%= kramdown(event.description) %>
-      </p>
+    <div class="row-fluid">
+      <div class="span5">
+        <p>
+        <%= link_to events_path, :class => "btn btn-primary btn-large" do %>
+          See all events <i class="icon-circle-arrow-right"></i>
+        <% end %>
+        </p>
+      </div>
     </div>
   </div>
 </div>
