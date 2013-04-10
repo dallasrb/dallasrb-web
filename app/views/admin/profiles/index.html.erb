@@ -1,38 +1,49 @@
 <%= render 'shared/admin_menu' %>
 
-<hr />
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <hr />
+  </div>
+</div>
 
-<h3>Profiles</h3>
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <h3>Profiles</h3>
+    </div>
+  </div>
+</div>
 
-<div class="span10">
-  <% if @profiles.empty? %>
-    <p>No profiles to approve!</p>
-  <% else %>
-    <table class="table table-condensed">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Homepage</th>
-          <th>Bio</th>
-          <th>Twitter</th>
-          <th>GitHub</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @profiles.each do |profile| %>
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <% if @profiles.empty? %>
+      <p>No profiles to approve!</p>
+    <% else %>
+      <table class="table table-condensed">
+        <thead>
           <tr>
-            <td><%= profile.name %></td>
-            <td><%= profile.email %></td>
-            <td><%= profile.homepage %></td>
-            <td><%= profile.blurb %></td>
-            <td><%= profile.twitter %></td>
-            <td><%= profile.github %></td>
-            <td><%= link_to("Approve Profile", admin_profile_path(profile), :method => :put, :class => 'btn btn-mini') %></td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Homepage</th>
+            <th>Bio</th>
+            <th>Twitter</th>
+            <th>GitHub</th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <% end %>
+        </thead>
+        <tbody>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td><%= profile.name %></td>
+              <td><%= profile.email %></td>
+              <td><%= profile.homepage %></td>
+              <td><%= profile.blurb %></td>
+              <td><%= profile.twitter %></td>
+              <td><%= profile.github %></td>
+              <td><%= link_to("Approve Profile", admin_profile_path(profile), :method => :put, :class => 'btn btn-mini') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>

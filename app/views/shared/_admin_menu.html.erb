@@ -1,7 +1,11 @@
-<ul class="nav nav-pills">
-  <% %w(users events profiles).each do |menu_link| %>
-    <li class="<%= is_active_admin_menu_link?(menu_link,params[:controller]) %>">
-      <%= link_to "#{menu_link.capitalize}", {:controller => menu_link} %>
-    </li>
-  <% end %>
-</ul>
+<div class="row-fluid">
+  <div class="span10 offset1">
+    <ul class="nav nav-pills">
+      <% %w(users events profiles).each do |menu_link| %>
+        <li class="<%= is_active_admin_menu_link?(menu_link,params[:controller]) %>">
+          <%= link_to "#{menu_link.capitalize}", {:controller => menu_link} %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
