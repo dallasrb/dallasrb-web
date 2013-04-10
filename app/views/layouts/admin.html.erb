@@ -5,8 +5,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "Dallas Ruby Brigade" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dallas Ruby Brigade" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css">
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
@@ -18,11 +19,13 @@
       </nav>
     </div>
     <div id="main" role="main">
-      <div class="container">
+      <div class="container-fluid">
         <%= yield %>
         <footer>
         </footer>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
+    <%= javascript_include_tag "application" %>
+    <%= yield :scripts %>
   </body>
 </html>

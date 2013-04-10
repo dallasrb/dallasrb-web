@@ -1,4 +1,6 @@
-<%= link_to "Dallas Ruby Brigade", root_path, :class => 'brand' %>
+<%= link_to root_path, :class => 'brand' do %>
+  <i class="icon-star"></i> Dallas.rb
+<% end %>
 <ul class="nav">
   <li>
     <%= link_to "Team", team_path %>
@@ -39,7 +41,7 @@
   <% else %>
     <li>
       <%= link_to signin_path do %>
-        <i class="icon-github-alt"></i> Login with GitHub
+        <i class="icon-github icon-large"></i> Sign in with GitHub
       <% end %>
     </li>
   <% end %>
