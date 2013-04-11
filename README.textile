@@ -1,5 +1,5 @@
 h1. Dallasrb Web
-!https://travis-ci.org/dallasrb/dallasrb-web.png?branch=master!:https://travis-ci.org/dallasrb/dallasrb-web
+!https://travis-ci.org/dallasrb/dallasrb-web.png?branch=master!:https://travis-ci.org/dallasrb/dallasrb-web "!https://codeclimate.com/github/dallasrb/dallasrb-web.png!":https://codeclimate.com/github/dallasrb/dallasrb-web
 
 This application is the future Dallasrb.org website and is a WIP!
 
