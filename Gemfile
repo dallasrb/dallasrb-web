@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'rb-fsevent', '~> 0.9'
+  gem 'travis-lint'
 end
 
 group :test do
