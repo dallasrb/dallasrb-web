@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - "1.9.3"
 before_script:
-  - psql -c 'create database dallasrb-web_test;' -U dallasrb-web
+  - psql -c 'create database dallasrb-web_test;' -U postgres

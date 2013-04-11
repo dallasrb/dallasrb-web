@@ -44,7 +44,7 @@ test:
   encoding: unicode
   database: dallasrb-web_test
   pool: 5
-  username: dallasrb-web
+  username: postgres
   password:
   template: template0
 
