@@ -42,7 +42,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: dallasrb-web_test
+  database: dallasrb_test
   pool: 5
   username: postgres
   password:
