@@ -31,6 +31,16 @@ The application is configured to send email using a SendGrid account.
 h2. Getting Started
 
 bundle install
+copy config/application.example.yml into config/application.yml and create your own SECRET_TOKEN
+set up your application to integrate with Github
+ - Go to https://github.com/settings/applications/new
+ - set a name for your app
+ - URL: http://localhost:8080
+ - Callback URL: http://localhost:8080/auth/github/callback
+ - copy the Github provided data into your application.yml
+  * Client ID into OMNIAUTH_PROVIDER_KEY
+  * Client Secret into OMNIAUTH_PROVIDER_SECRET
+
 bundle exec unicorn_rails
 
 h2. Documentation and Support
