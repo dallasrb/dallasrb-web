@@ -4,15 +4,25 @@
       <div class="span4">
         <h2><%= event.title %></h2>
         <p><i class="icon-time"></i><%= event_timestamp(event) %></p>
-        <p><strong>Venue:</strong><p>
-        <%= address_helper(event) %>
-        <p>
-          RSVP <%= link_to "here.", event.rsvp_url %>
-        </p>
+        <p><strong>Venue(s):</strong><p>
+        <% if event.event_addresses.size > 1 %>
+          <%= addresses_helper(event) %>
+        <% else %>
+          <%= address_helper(event.event_addresses.first) %>
+        <% end %>
+        <% unless event.rsvp_url.blank? %>
+          <p>
+            RSVP <%= link_to "here.", event.rsvp_url %>
+          </p>
+        <% end %>
       </div>
 
       <div class="span4">
-        <%= render 'events/event_map', :event => event %>
+        <% if event.event_addresses.size > 1 %>
+          <%= render 'events/event_multi_map', :event_addresses => event.event_addresses %>
+        <% else %>
+          <%= render 'events/event_map', :event_address => event.event_addresses.first %>
+        <% end %>
       </div>
     </div>
 

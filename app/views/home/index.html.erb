@@ -3,7 +3,7 @@
     <div class="page-header">
       <h1>Dallas.rb</h1>
       <h2>Dallas Ruby Brigade</h2>
-      <p>The Dallas Ruby Brigade has been around since early 2007. We meet every Tuesday evening to present, hack, teach, or learn about the Ruby programming language. </p>
+      <p>The Dallas Ruby Brigade has been around since early 2006. We meet every Tuesday evening to present, hack, teach, or learn about the Ruby programming language. </p>
       <p>There is always food. Sometimes there is beer. All are welcome!</p>
     </div>
   </div>
@@ -55,6 +55,8 @@
 
 <% content_for :scripts do %>
   <script>
-    events.init_map("<%=j marker_for(@current_event) %>");
+  <% @current_event.event_addresses.each do |event_address| %>
+    events.init_map("<%=j marker_for(event_address) %>");
+  <% end %>
   </script>
 <% end %>

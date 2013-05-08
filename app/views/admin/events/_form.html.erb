@@ -17,23 +17,25 @@
     <%= f.text_area :description, :class => "input-block-level", :rows => 15 %>
     <%= f.label :speaker %>
     <%= f.text_field :speaker, :class => "input-block-level" %>
-    <%= f.label :venue %>
-    <%= f.text_field :venue %>
-    <%= f.label :address %>
-    <%= f.text_area :address, :class => "input-block-level", :rows => 4 %>
     <%= f.label "Plancast URL" %>
     <%= f.text_field :rsvp_url %>
     <%= f.label :published, :class => "checkbox" do %>
       <%= f.check_box :published %>
       Published
     <% end %>
-    <br />
-    <%= f.submit "Save", :class => "btn btn-primary" %>
-    or
-    <%= link_to "Cancel", admin_events_url %>
   </fieldset>
+  <br />
+  <div class="controls controls-row">
+    <%= f.fields_for :event_addresses do |builder| %>
+      <%= render 'event_address_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Add Location", f, :event_addresses %>  </div>
+  <%= f.submit "Save", :class => "btn btn-primary" %>
+  or
+  <%= link_to "Cancel", admin_events_url %>
 <% end %>
-<script type="text/javascript">
+
+<script>
    $(".form_datetime").datetimepicker({
      format: "yyyy-MM-dd  HH:ii P",
      showMeridian: true,
