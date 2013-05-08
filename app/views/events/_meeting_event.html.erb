@@ -7,14 +7,14 @@
         <h3><%= event.title %></h3>
         <p><strong>Speaker(s):</strong> <%= event.speaker %></p>
         <p><strong>Venue:</strong><p>
-        <%= address_helper(event) %>
+        <%= address_helper(event.event_addresses.first) %>
         <p>
           RSVP <%= link_to "here.", event.rsvp_url %>
         </p>
       </div>
 
       <div class="span4">
-        <%= render 'events/event_map', :event => event %>
+        <%= render 'events/event_map', :event_address => event.event_addresses.first %>
       </div>
     </div>
 

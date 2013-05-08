@@ -1,6 +1,10 @@
 var events = {
-  init_map: function(content) {
-    Gmaps.map.callback = function() {
+  init_map: function(content, index) {
+    google_map = Gmaps["map_" + index];
+    if(google_map == undefined) {
+      google_map = Gmaps.map;
+    }
+    google_map.callback = function() {
       map = this.map;
       var infoWindow = new google.maps.InfoWindow();
       infoWindow.setContent(content);
