@@ -4,7 +4,7 @@ class Admin::ProfilesController < ApplicationController
   before_filter :check_user_is_admin?
 
   def index
-    @profiles = Profile.approved(false)
+    @profiles = Profile.unapproved
   end
 
   def show
