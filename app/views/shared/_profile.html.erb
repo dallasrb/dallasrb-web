@@ -6,14 +6,19 @@
   <h3 class="media-heading"><%= profile.name %></h4>
   <p><%= profile.blurb %></p>
   <ul class="inline">
-    <li>
-      <i class="icon-home"></i>
-      <a href="<%= profile.homepage %>">Website</a>
-    </li>
-    <li>
-      <i class="icon-twitter"></i>
-      <a href="<%= twitter_url_for(profile.twitter) %>">Twitter</a>
-    </li>
+    <%- unless profile.homepage.blank? -%>
+      <li>
+        <i class="icon-home"></i>
+        <a href="<%= profile.homepage %>">Website</a>
+      </li>
+    <%- end -%>
+
+    <%- unless profile.twitter.blank? -%>
+      <li>
+        <i class="icon-twitter"></i>
+        <a href="<%= twitter_url_for(profile.twitter) %>">Twitter</a>
+      </li>
+    <%- end -%>
     <li>
       <i class="icon-github-alt"></i>
       <a href="<%= github_url_for(profile.github) %>">GitHub</a>
