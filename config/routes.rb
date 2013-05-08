@@ -3,7 +3,10 @@ DallasrbWeb::Application.routes.draw do
   root :to => "home#index"
   match '/team' => "home#team"
 
-  resources :profiles
+  resources :profiles do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+
   resources :events, :only => [:index, :show] do
     collection do
       get "current"
