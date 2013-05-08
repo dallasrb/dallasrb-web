@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.past_events(EventType.find_by_name("meeting"))
+    @events = Event.past_events
   end
 
   def show

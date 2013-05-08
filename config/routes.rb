@@ -11,7 +11,7 @@ DallasrbWeb::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, :only => [:index, :show, :edit, :update]
+    resources :users, :only => [:index, :show, :edit, :update, :destroy]
     resources :events, :only => [:index, :new, :edit, :create, :update, :destroy] do
       member do
         get "copy"

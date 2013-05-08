@@ -1,12 +1,12 @@
 class Profile < ActiveRecord::Base
   attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved
 
-  def self.not_approved
-    self.where(:approved => [false, nil])
-  end
-
   def self.approved
     self.where(:approved => true)
+  end
+
+  def self.unapproved
+    self.where(:approved => [false, nil])
   end
 
   def self.non_organizers
@@ -14,7 +14,7 @@ class Profile < ActiveRecord::Base
   end
 
   def self.organizers
-    self.approved.where(:organizer => true)
+    self.approved.where(:organizer => true).order("sort_order asc")
   end
 
   def make_organizer!

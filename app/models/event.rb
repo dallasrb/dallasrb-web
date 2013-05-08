@@ -1,19 +1,15 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
-  acts_as_gmappable :lat => 'latitude', :lng => 'longitude', :process_geocoding => :geocode?,
-  :address => "address", :normalized_address => "address",
-  :msg => "Sorry, not even Google could figure out where that is"
+  has_many :event_addresses
+
+  accepts_nested_attributes_for :event_addresses, :allow_destroy => true
 
   belongs_to :event_type
 
-  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :published, :latitude, :longitude, :rsvp_url, :speaker, :title
+  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :published, :latitude, :longitude, :rsvp_url, :speaker, :title, :event_addresses_attributes, :event_addresses
   friendly_id :title, use: :slugged
 
   validates_associated :event_type
-
-  def geocode?
-    (!address.blank? && (latitude.blank? || longitude.blank?)) || address_changed?
-  end
 
   def self.published
     where(:published => true)
@@ -23,19 +19,15 @@ class Event < ActiveRecord::Base
     published.order("event_date desc").limit(count)
   end
 
-  def self.past_events(event_type)
-    published.where(:event_type_id => event_type.id).order("event_date desc")
+  def self.past_events
+    published.order("event_date desc")
   end
 
   # create from an existing event. Key attributes only.
   def copy
-    Event.new(:venue => venue,
-              :address => address,
-              :event_type_id => event_type_id,
-              :event_date => (event_date + 1.month))
-  end
+    new_event = self.dup(:include => [:event_addresses])
+    new_event.event_date = event_date + 1.month
 
-  def gmaps4rails_address
-    [{:lng => longitude, :lat => latitude, :width => 10, :height => 20}].to_json
+    new_event
   end
 end

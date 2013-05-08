@@ -4,6 +4,7 @@
     <table class="table table-condensed table-striped">
       <thead>
         <tr>
+          <th>Event Type</th>
           <th>Title</th>
           <th>Date</th>
           <th>Speakers</th>
@@ -12,9 +13,10 @@
       <tbody>
         <% @events.each do |event| %>
           <tr>
+            <td><%= event.event_type.name.titleize %></td>
             <td><%= link_to event.title, event %></td>
             <td><%= event.event_date.to_date %></td>
-            <td><%= event.speaker %></td>
+            <td><%= event.speaker.presence || "N/A" %></td>
           </tr>
         <% end %>
       </tbody>

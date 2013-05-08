@@ -21,7 +21,6 @@
           <th>Event Date</th>
           <th>Event Type</th>
           <th>Title</th>
-          <th>Address</th>
           <th>Published</th>
           <th>Actions</th>
         </tr>
@@ -32,7 +31,6 @@
             <td><%= event.event_date.to_date %></td>
             <td><%= event.event_type.name.capitalize %></td>
             <td><%= link_to(event.title, [:edit, :admin, event]) %></td>
-            <td><%= event.address %></td>
             <td><%= event.published? ? "Yes" : "No" %></td>
             <td>
               <%= link_to(admin_event_path(event),

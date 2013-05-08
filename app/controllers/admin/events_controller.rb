@@ -4,15 +4,17 @@ class Admin::EventsController < ApplicationController
   before_filter :check_user_is_admin?
 
   def index
-    @events = Event.all
+    @events = Event.order("event_date desc")
   end
 
   def edit
     @event = Event.find(params[:id])
+    @event.event_addresses.build if @event.event_addresses.blank?
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(:event_date => Time.now)
+    @event.event_addresses.build if @event.event_addresses.blank?
   end
 
   def create

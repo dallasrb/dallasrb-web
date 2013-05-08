@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401024936) do
+ActiveRecord::Schema.define(:version => 20130508052606) do
+
+  create_table "event_addresses", :force => true do |t|
+    t.integer  "event_id"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "address"
+    t.string   "venue"
+    t.boolean  "gmaps"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "event_types", :force => true do |t|
     t.string   "name"
@@ -27,12 +38,7 @@ ActiveRecord::Schema.define(:version => 20130401024936) do
     t.text     "description"
     t.string   "slug"
     t.string   "rsvp_url"
-    t.string   "venue"
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
     t.boolean  "published"
-    t.boolean  "gmaps"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -47,9 +53,10 @@ ActiveRecord::Schema.define(:version => 20130401024936) do
     t.string   "email"
     t.string   "homepage"
     t.boolean  "organizer"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.boolean  "approved"
+    t.integer  "sort_order", :default => 0
   end
 
   create_table "roles", :force => true do |t|
