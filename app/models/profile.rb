@@ -1,8 +1,12 @@
 class Profile < ActiveRecord::Base
   attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved
 
-  def self.approved(approved = true)
-    self.where(:approved => approved)
+  def self.not_approved
+    self.where(:approved => [false, nil])
+  end
+
+  def self.approved
+    self.where(:approved => true)
   end
 
   def self.non_organizers
