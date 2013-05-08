@@ -45,3 +45,4 @@ gem 'friendly_id', "~> 4.0.9"
 gem 'gmaps4rails', '~> 2.0.0.pre'
 gem 'kramdown'
 gem 'deep_cloneable', '~> 1.5.0'
+gem 'kaminari', '~> 0.14.1'

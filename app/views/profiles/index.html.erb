@@ -12,6 +12,8 @@
       <%- end -%>
     </ul>
   </div>
+
+  <%= paginate @profiles %>
 </div>
 
 <%- unless user_signed_in? -%>
