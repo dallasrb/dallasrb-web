@@ -1,0 +1,7 @@
+<fieldset>
+  <legend>Location</legend>
+  <%= f.text_field :venue, :class => "span5", :placeholder => "venue" %>
+  <%= f.text_area :address, :class => "span7", :rows => 4, :placeholder => "address" %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>

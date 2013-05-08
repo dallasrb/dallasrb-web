@@ -14,7 +14,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to :index
+      redirect_to [:admin, :users]
     else
       render :edit
     end
@@ -23,7 +23,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      redirect_to :index, :notice => "User removed."
+      redirect_to [:admin, :users], :notice => "User removed."
     else
       render :index, :error => "Failed to delete user"
     end
