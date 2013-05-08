@@ -1,10 +1,17 @@
 class Profile < ActiveRecord::Base
   attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved
 
-  scope :not_approved, where(:approved => false)
-  scope :approved, where(:approved => true)
-  scope :non_organizers, approved.where(:organizer => [false, nil])
-  scope :organizers, approved.where(:organizer => true)
+  def self.approved(approved = true)
+    self.where(:approved => approved)
+  end
+
+  def self.non_organizers
+    self.approved.where(:organizer => [false, nil])
+  end
+
+  def self.organizers
+    self.approved.where(:organizer => true)
+  end
 
   def make_organizer!
     self.update_attribute(:organizer, true)
