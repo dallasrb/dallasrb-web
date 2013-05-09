@@ -31,7 +31,7 @@
           </li>
         <% end %>
         <li>
-          <%= link_to "Profile", url_for([:edit, Profile.find_by_email(current_user.email)]) %>
+          <%= link_to "Profile", url_for([:edit, current_user.profile]) %>
         </li>
         <li>
           <%= link_to 'Logout', signout_path %>
