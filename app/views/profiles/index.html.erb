@@ -1,16 +1,16 @@
 <div class="row-fluid profile">
   <div class="span10 offset1">
-    <ul class="media-list">
+    <div class="media-list">
       <%- if @profiles.count > 0 -%>
         <% @profiles.each do |profile| %>
-          <li class="media">
-            <%= render 'shared/profile', :profile => profile %>
-          </li>
+          <div class="media">
+            <%= render profile %>
+          </div>
         <% end %>
       <%- else -%>
         There are no approved Team Members at this time.
       <%- end -%>
-    </ul>
+    </div>
   </div>
 
   <%= paginate @profiles %>

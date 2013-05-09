@@ -4,3 +4,14 @@
 .pagination {
   text-align: center;
 }
+
+body.profiles.index {
+  .media, .media .media {
+    border: 1px solid #991111;
+    float: left;
+    height: 135px;
+    margin: 15px 15px 0 0;
+    padding: 5px;
+    width: 45%;
+  }
+}
