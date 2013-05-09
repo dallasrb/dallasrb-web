@@ -7,12 +7,10 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
     verify_user!
   end
 
   def update
-    @profile = Profile.find(params[:id])
     verify_user!
     if @profile.update_attributes(params[:profile])
       redirect_to [:edit, @profile], :notice => "Profile saved."
@@ -21,9 +19,8 @@ class ProfilesController < ApplicationController
 
   private
 
+  #edit/update only current user's profile
   def verify_user!
-    unless @profile.email == current_user.email
-      redirect_to root_url, :alert => "Access denied."
-    end
+    @profile = current_user.profile
   end
 end
