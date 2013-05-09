@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   rolify
   attr_accessible :provider, :uid, :name, :email, :role_ids
+  has_one :profile
 
   def self.create_with_omniauth(auth)
     created_user = create! do |user|
@@ -16,6 +17,7 @@ class User < ActiveRecord::Base
       Profile.create! do |profile|
         profile.name = created_user.name
         profile.email = created_user.email
+        profile.user_id = created_user.id
         if auth['info']
           profile.github = auth['info']['nickname']
         end
@@ -23,6 +25,15 @@ class User < ActiveRecord::Base
     end
 
     created_user
+  end
+
+  #update the users mail if changed at github
+  def update_email(email)
+    if email != self.email
+      self.update_attributes!(:email=>email)
+      #ToDo can be ignored if using association b/w users and profiles
+      self.profile.update_attributes!(:email=>email)
+    end
   end
 
 end

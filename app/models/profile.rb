@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
-  attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved
+  attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved, :user_id
+  belongs_to :user
 
   def self.approved
     self.where(:approved => true)
