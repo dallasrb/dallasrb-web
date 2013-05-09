@@ -107,6 +107,9 @@ GEM
     json (1.7.7)
     jwt (0.1.7)
       multi_json (>= 1.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.8.0)
     kramdown (1.0.1)
     launchy (2.2.0)
@@ -255,6 +258,7 @@ DEPENDENCIES
   guard
   guard-rspec
   jquery-rails
+  kaminari (~> 0.14.1)
   kramdown
   omniauth (>= 1.1.3)
   omniauth-github

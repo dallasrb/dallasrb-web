@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def index
-    @profiles = Profile.non_organizers
+    @profiles = Profile.non_organizers.page(params[:page]).per(10)
   end
 
   def edit
