@@ -4,7 +4,7 @@ namespace :sort do
   task epic: :environment do
     puts "Generating Sorting Scores"
     Profile.non_organizers.each do |profile|
-      profile.save
+      profile.touch
     end
   end
 
