@@ -2,6 +2,12 @@ class Profile < ActiveRecord::Base
   attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved, :user_id
   belongs_to :user
 
+  before_save :epic_sorting, if: lambda { !organizer? }
+
+  def organizer?
+    !!self.organizer
+  end
+
   def self.approved
     self.where(:approved => true)
   end
@@ -24,5 +30,13 @@ class Profile < ActiveRecord::Base
 
   def approve!
     self.update_attribute(:approved, true)
+  end
+
+private
+  def epic_sorting
+    epic_length = 20 + Random.rand(60)
+    bio_length  = blurb.present? ? blurb.length : 0
+    score       = (epic_length - bio_length).abs
+    sort_order  = score
   end
 end
