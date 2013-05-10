@@ -3,7 +3,7 @@
     <ul class="media-list">
       <% @organizers.each do |organizer| %>
         <li class="media">
-          <%= render 'shared/profile', :profile => organizer %>
+          <%= render organizer %>
         </li>
       <% end %>
     </ul>

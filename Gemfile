@@ -28,9 +28,10 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara", ">= 2.0.2", :group => :test
-  gem "database_cleaner", ">= 0.9.1", :group => :test
-  gem "email_spec", ">= 1.4.0", :group => :test
+  gem "capybara", ">= 2.0.2"
+  gem "database_cleaner", ">= 0.9.1"
+  gem "email_spec", ">= 1.4.0"
+  gem "factory_girl_rails", "~> 4.2.1"
 end
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
