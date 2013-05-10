@@ -11,7 +11,7 @@ describe Profile do
     @organizer.should  be_organizer
   end
   
-  it "should leave the organizers soret order as is when saved" do
+  it "should leave the organizers sort order as is when saved" do
     @organizer.name       = "sample"
     @organizer.sort_order = 3
     @organizer.save
@@ -23,10 +23,10 @@ describe Profile do
   it "should create a sort score based on the length of the blurb length" do
     @member.name       = "sample"
     @member.sort_order = 3
-    @member.save
+    @member.save!
 
     @member.reload
-    @member.sort_order.should be 3
+    @member.sort_order.should_not be 3
 
   end
 

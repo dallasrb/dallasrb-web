@@ -34,9 +34,9 @@ class Profile < ActiveRecord::Base
 
 private
   def epic_sorting
-    epic_length = 20 + Random.rand(60)
-    bio_length  = blurb.present? ? blurb.length : 0
-    score       = (epic_length - bio_length).abs
-    sort_order  = score
+    epic_length      = 20 + Random.rand(60)
+    bio_length       = blurb.present? ? blurb.length : 0
+    score            = (epic_length - bio_length).abs
+    self.sort_order  = score
   end
 end
