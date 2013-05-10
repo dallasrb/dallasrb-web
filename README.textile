@@ -40,6 +40,7 @@ set up your application to integrate with Github
  - copy the Github provided data into your application.yml
   * Client ID into OMNIAUTH_PROVIDER_KEY
   * Client Secret into OMNIAUTH_PROVIDER_SECRET
+rake db:seed
 
 bundle exec unicorn_rails
 
