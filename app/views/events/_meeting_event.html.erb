@@ -8,11 +8,7 @@
         <p><strong>Speaker(s):</strong> <%= event.speaker %></p>
         <p><strong>Venue:</strong><p>
         <%= address_helper(event.event_addresses.first) %>
-        <p>
-          <%= link_to event.rsvp_url, :class => "btn btn-primary btn-large" do %>
-            <i class="icon-envelope"></i> Register to attend
-          <% end %>
-        </p>
+        <%= render 'events/rsvp_button', :event => event %>
       </div>
 
       <div class="span4">
