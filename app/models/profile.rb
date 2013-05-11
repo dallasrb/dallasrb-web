@@ -4,6 +4,10 @@ class Profile < ActiveRecord::Base
 
   before_save :epic_sorting, if: lambda { !organizer? }
 
+  validates :name, :presence => true, :on => :update
+
+  SHORT_BLURB_LENGTH = 85
+
   def organizer?
     !!self.organizer
   end
