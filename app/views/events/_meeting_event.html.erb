@@ -8,9 +8,7 @@
         <p><strong>Speaker(s):</strong> <%= event.speaker %></p>
         <p><strong>Venue:</strong><p>
         <%= address_helper(event.event_addresses.first) %>
-        <p>
-          RSVP <%= link_to "here.", event.rsvp_url %>
-        </p>
+        <%= render 'events/rsvp_button', :event => event %>
       </div>
 
       <div class="span4">
@@ -24,16 +22,6 @@
       <div class="span8">
         <p>
           <%= kramdown(event.description) %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row-fluid">
-      <div class="span5">
-        <p>
-        <%= link_to events_path, :class => "btn btn-primary btn-large" do %>
-          See all events <i class="icon-circle-arrow-right"></i>
-        <% end %>
         </p>
       </div>
     </div>

@@ -10,11 +10,7 @@
         <% else %>
           <%= address_helper(event.event_addresses.first) %>
         <% end %>
-        <% unless event.rsvp_url.blank? %>
-          <p>
-            RSVP <%= link_to "here.", event.rsvp_url %>
-          </p>
-        <% end %>
+        <%= render 'events/rsvp_button', :event => event %>
       </div>
 
       <div class="span4">
