@@ -12,7 +12,9 @@
         <% end %>
         <% unless event.rsvp_url.blank? %>
           <p>
-            RSVP <%= link_to "here.", event.rsvp_url %>
+            <%= link_to event.rsvp_url, :class => "btn btn-primary btn-large" do %>
+              <i class="icon-envelope"></i> Register to attend
+            <% end %>
           </p>
         <% end %>
       </div>

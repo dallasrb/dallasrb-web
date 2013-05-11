@@ -4,9 +4,11 @@
   </div>
 </div>
 <div class="row-fluid">
-  <div class="span11 offset1">
+  <div class="span5 offset1">
     <p>
-      <%= link_to "See all events »", events_path %>
+    <%= link_to events_path, :class => "btn btn-primary btn-large" do %>
+      See all events <i class="icon-circle-arrow-right"></i>
+    <% end %>
     </p>
   </div>
 </div>
