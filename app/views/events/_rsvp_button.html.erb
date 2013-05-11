@@ -1,5 +1,7 @@
-<p>
-<%= link_to events_path, :class => "btn btn-primary btn-large" do %>
-  See all events <i class="icon-circle-arrow-right"></i>
+<% if should_display_rsvp?(event) %>
+  <p>
+    <%= link_to event.rsvp_url, :class => "btn btn-primary btn-large" do %>
+      <i class="icon-envelope"></i> Register to attend
+    <% end %>
+  </p>
 <% end %>
-</p>

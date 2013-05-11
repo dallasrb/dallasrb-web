@@ -40,4 +40,8 @@ module EventsHelper
 
     "#{start_time} to #{end_time} on #{date}"
   end
+
+  def should_display_rsvp?(event)
+    (!event.rsvp_url.blank? && !event.event_date.past?)
+  end
 end
