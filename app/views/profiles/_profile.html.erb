@@ -1,31 +1,40 @@
-<span class="pull-left">
-  <img src="<%= gravatar_for(profile.email) %>" class="img-circle" />
-</span>
+<div class='media'>
+  <span class="pull-left">
+    <a href='<%= profile_path(profile) %>'><img src="<%= gravatar_for(profile.email) %>" class="img-circle" /></a>
+  </span>
 
-<div class="media-body">
-  <h3 class="media-heading"><%= profile.name %></h3>
-  <p><%= profile.blurb %></p>
-  <ul class="inline">
-    <%- unless profile.homepage.blank? -%>
-      <li>
-        <i class="icon-home"></i>
-        <a href="<%= profile.homepage %>">Website</a>
-      </li>
-    <%- end -%>
+  <div class="media-body">
+    <h3 class="media-heading"><%= profile.name %></h3>
+    <ul class="inline">
+      <%- unless profile.homepage.blank? -%>
+        <li>
+          <i class="icon-home"></i>
+          <a href="<%= profile.homepage %>">Website</a>
+        </li>
+      <%- end -%>
 
-    <%- unless profile.twitter.blank? -%>
+      <%- unless profile.twitter.blank? -%>
+        <li>
+          <i class="icon-twitter"></i>
+          <a href="<%= twitter_url_for(profile.twitter) %>">Twitter</a>
+        </li>
+      <%- end -%>
       <li>
-        <i class="icon-twitter"></i>
-        <a href="<%= twitter_url_for(profile.twitter) %>">Twitter</a>
+        <i class="icon-github-alt"></i>
+        <a href="<%= github_url_for(profile.github) %>">GitHub</a>
       </li>
-    <%- end -%>
-    <li>
-      <i class="icon-github-alt"></i>
-      <a href="<%= github_url_for(profile.github) %>">GitHub</a>
-    </li>
-    <li>
-      <i class="icon-envelope-alt"></i>
-      <%= mail_to(profile.email, "Email") %>
-    </li>
-  </ul>
+      <li>
+        <i class="icon-envelope-alt"></i>
+        <%= mail_to(profile.email, "Email") %>
+      </li>
+    </ul>
+    <p>
+      <%- if abbreviated && profile.blurb.present? && profile.blurb.length > Profile::SHORT_BLURB_LENGTH -%>
+        <%= truncate profile.blurb, :length => Profile::SHORT_BLURB_LENGTH, :separator => ' ' %>
+        <%= link_to 'more', profile_path(profile) %>
+      <%- else -%>
+        <%= profile.blurb %>
+      <%- end -%>
+    </p>
+  </div>
 </div>

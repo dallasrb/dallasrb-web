@@ -4,7 +4,14 @@
     <%= form_for(@profile) do |f| %>
       <fieldset>
         <%= f.label :name %>
-        <%= f.text_field :name %>
+        <div class='control-group <%= field_has_errors?(@profile, :name) ? :error : '' %>'>
+          <div class="controls">
+            <%= f.text_field :name, :label => false %>
+            <%- if field_has_errors?(@profile, :name) -%>
+              <span class="help-inline"><%= @profile.errors[:name].join(',') %></span>
+            <%- end -%>
+          </div>
+        </div>
         <%= f.label :about %>
         <%= f.text_area :blurb, :rows => 5 %>
         <%= f.label :twitter %>
@@ -25,4 +32,4 @@
       </fieldset>
     <% end %>
   </div>
-</div
+</div>
