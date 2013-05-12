@@ -1,13 +1,9 @@
 class ProfilesController < ApplicationController
   #user must be signed in to edit the profile
-  before_filter :authenticate_user!, except:[:index, :show]
+  before_filter :authenticate_user!, except:[:index]
   
   def index
-    @profiles = Profile.non_organizers.order('sort_order asc').page(params[:page]).per(4)
-  end
-
-  def show
-    @profile = Profile.find params[:id]
+    @profiles = Profile.non_organizers.order('sort_order asc').page(params[:page]).per(8)
   end
 
   def edit

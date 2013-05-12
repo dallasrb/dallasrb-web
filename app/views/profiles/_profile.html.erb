@@ -1,6 +1,6 @@
 <div class='media'>
   <span class="pull-left">
-    <a href='<%= profile_path(profile) %>'><img src="<%= gravatar_for(profile.email) %>" class="img-circle" /></a>
+    <img src="<%= gravatar_for(profile.email) %>" class="img-circle" />
   </span>
 
   <div class="media-body">
@@ -28,13 +28,6 @@
         <%= mail_to(profile.email, "Email") %>
       </li>
     </ul>
-    <p>
-      <%- if abbreviated && profile.blurb.present? && profile.blurb.length > Profile::SHORT_BLURB_LENGTH -%>
-        <%= truncate profile.blurb, :length => Profile::SHORT_BLURB_LENGTH, :separator => ' ' %>
-        <%= link_to 'more', profile_path(profile) %>
-      <%- else -%>
-        <%= profile.blurb %>
-      <%- end -%>
-    </p>
+    <p><%= profile.blurb %></p>
   </div>
 </div>
