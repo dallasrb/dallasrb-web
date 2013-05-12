@@ -3,18 +3,16 @@
     <div class="media-list">
       <%- if @profiles.count > 0 -%>
         <% @profiles.each do |profile| %>
-          <div class="media">
-            <%= render profile %>
-          </div>
+          <%= render profile, :abbreviated => true %>
         <% end %>
       <%- else -%>
         There are no approved Team Members at this time.
       <%- end -%>
     </div>
   </div>
-
-  <%= paginate @profiles %>
 </div>
+
+<%= paginate @profiles %>
 
 <%- unless user_signed_in? -%>
   <div class="row-fluid">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510000328) do
+ActiveRecord::Schema.define(:version => 20130512155901) do
 
   create_table "event_addresses", :force => true do |t|
     t.integer  "event_id"
@@ -47,16 +47,16 @@ ActiveRecord::Schema.define(:version => 20130510000328) do
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
-    t.text     "blurb"
+    t.string   "blurb",      :limit => 140
     t.string   "twitter"
     t.string   "github"
     t.string   "email"
     t.string   "homepage"
     t.boolean  "organizer"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.boolean  "approved"
-    t.integer  "sort_order", :default => 0
+    t.integer  "sort_order",                :default => 0
     t.integer  "user_id"
   end
 

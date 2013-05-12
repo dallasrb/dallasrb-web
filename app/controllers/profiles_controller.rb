@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!, except:[:index]
   
   def index
-    @profiles = Profile.non_organizers.order('sort_order asc').page(params[:page]).per(10)
+    @profiles = Profile.non_organizers.order('sort_order asc').page(params[:page]).per(8)
   end
 
   def edit
@@ -13,7 +13,9 @@ class ProfilesController < ApplicationController
   def update
     verify_user!
     if @profile.update_attributes(params[:profile])
-      redirect_to [:edit, @profile], :notice => "Profile saved."
+      redirect_to @profile, :notice => "Profile saved."
+    else
+      render :edit
     end
   end
 

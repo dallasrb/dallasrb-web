@@ -6,12 +6,13 @@
 }
 
 body.profiles.index {
-  .media, .media .media {
+  .media {
     border: 1px solid #991111;
+    border-radius: 6px;
     float: left;
-    height: 135px;
+    height: 150px;
     margin: 15px 15px 0 0;
     padding: 5px;
-    width: 45%;
+    width: 432px;
   }
 }
