@@ -22,5 +22,12 @@ describe EventsHelper do
         helper.should_display_rsvp?(subject).should be_false
       end
     end
+
+    context "When an event has an rsvp_url and is happening today" do
+      subject { Event.new(:rsvp_url => "http://plancast.com/test", :event_date => (Date.current)) }
+      it "should display rsvp" do
+        helper.should_display_rsvp?(subject).should be_true
+      end
+    end
   end
 end

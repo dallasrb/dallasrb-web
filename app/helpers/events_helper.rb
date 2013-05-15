@@ -42,6 +42,6 @@ module EventsHelper
   end
 
   def should_display_rsvp?(event)
-    (!event.rsvp_url.blank? && !event.event_date.past?)
+    (!event.rsvp_url.blank? && !event.event_date.to_date.past?)
   end
 end
