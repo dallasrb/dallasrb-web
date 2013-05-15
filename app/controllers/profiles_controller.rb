@@ -12,8 +12,8 @@ class ProfilesController < ApplicationController
 
   def update
     verify_user!
-    if @profile.update_attributes(params[:profile])
-      redirect_to @profile, :notice => "Profile saved."
+    if @profile.save_with_epic_sort(params[:profile])
+      redirect_to [:edit, @profile], :notice => "Profile saved."
     else
       render :edit
     end
