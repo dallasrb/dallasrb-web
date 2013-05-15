@@ -2,8 +2,6 @@ class Profile < ActiveRecord::Base
   attr_accessible :email, :homepage, :name, :twitter, :github, :blurb, :approved, :user_id
   belongs_to :user
 
-  before_save :epic_sorting, if: lambda { !organizer? }
-
   validates :name, :presence => true, :on => :update
 
   SHORT_BLURB_LENGTH = 85
@@ -28,6 +26,12 @@ class Profile < ActiveRecord::Base
     self.approved.where(:organizer => true).order("sort_order asc")
   end
 
+  def self.resort_members!
+    non_organizers.each do |profile|
+      profile.save_with_epic_sort
+    end
+  end
+
   def make_organizer!
     self.update_attribute(:organizer, true)
   end
@@ -36,9 +40,16 @@ class Profile < ActiveRecord::Base
     self.update_attribute(:approved, true)
   end
 
+  def save_with_epic_sort(args={}) 
+    assign_attributes(args)
+    epic_sort
+    save
+  end
+
 private
-  def epic_sorting
-    epic_length      = 20 + Random.rand(60)
+  def epic_sort
+    return if organizer?
+    epic_length      = 80 + Random.rand(20)
     bio_length       = blurb.present? ? blurb.length : 0
     score            = (epic_length - bio_length).abs
     self.sort_order  = score
