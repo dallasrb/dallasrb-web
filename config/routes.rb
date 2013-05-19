@@ -3,8 +3,10 @@ DallasrbWeb::Application.routes.draw do
   root :to => "home#index"
   match '/team' => "home#team"
 
+  match 'profiles/search' => 'profiles#search'
   resources :profiles do
     get 'page/:page', :action => :index, :on => :collection
+    get :autocomplete_profile_name, :on => :collection
   end
 
   resources :events, :only => [:index, :show] do
