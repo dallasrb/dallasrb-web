@@ -1,0 +1,11 @@
+<div id="search">
+  <%= form_for :profile, url:{action:'search'} do |f| -%>
+    <div id="autocomplete">
+      <div class="input-append">
+        <%= f.autocomplete_field :name, autocomplete_profile_name_profiles_path, :id_element => '#profile_id', placeholder:"Name" %>
+        <%= f.hidden_field :id %>
+        <span class="add-on">Search</span>
+      </div>
+    </div>
+  <% end -%>
+</div>
