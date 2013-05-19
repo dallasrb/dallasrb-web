@@ -16,4 +16,6 @@
 //= require holder
 //= require bootstrap-datetimepicker
 //= require gmaps4rails/all
+//= require jquery-ui
+//= require autocomplete-rails
 //= require_tree .
