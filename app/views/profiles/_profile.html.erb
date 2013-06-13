@@ -23,10 +23,13 @@
         <i class="icon-github-alt"></i>
         <a href="<%= github_url_for(profile.github) %>">GitHub</a>
       </li>
-      <li>
-        <i class="icon-envelope-alt"></i>
-        <%= mail_to(profile.email, "Email") %>
-      </li>
+
+      <% if (user_signed_in? && current_user.has_role?(:admin)) %>
+        <li>
+          <i class="icon-envelope-alt"></i>
+          <%= mail_to(profile.email, "Email") %>
+        </li>
+      <% end %>
     </ul>
     <p><%= profile.blurb %></p>
   </div>
