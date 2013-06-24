@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!, except:[:index]
   
   def index
-    @profiles = Profile.non_organizers.order('sort_order asc').page(params[:page]).per(8)
+    @profiles = Profile.non_organizers.order('sort_order asc, name asc').page(params[:page]).per(8)
   end
 
   def edit

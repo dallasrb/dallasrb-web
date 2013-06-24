@@ -38,7 +38,7 @@ describe Profile do
     @member.name.should == 'sample'
   end
 
-  it "should resort all non-rganizer sort orders" do
+  it "should resort all non-organizer sort orders" do
     @member.name       = "sample"
     @member.blurb      = @blurb
     @member.save
@@ -55,5 +55,17 @@ describe Profile do
     @member.sort_order.should   be_between(0, 20)
     @member_2.sort_order.should be_between(0, 20)
   end
+
+  it "should not show non-organizers more than once" do
+    (1..20).each do |num|
+      member       = FactoryGirl.build(:profile, :non_organizer, :approved)
+      member.name  = "sample #{num}"
+      member.blurb = @blurb
+      member.save
+    end
+    Profile.resort_members!
+    Profile.resort_members!
+    Profile.non_organizers.count.should == 20
+  end 
 
 end
