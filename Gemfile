@@ -32,7 +32,7 @@ group :test do
   gem "database_cleaner", ">= 0.9.1"
   gem "email_spec", ">= 1.4.0"
   gem "factory_girl_rails", "~> 4.2.1"
-  gem "timecop", "~> 0.6.1"
+  gem "timecop", "~> 0.6.2"
 end
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
@@ -48,3 +48,4 @@ gem 'gmaps4rails', '~> 2.0.0.pre'
 gem 'kramdown'
 gem 'deep_cloneable', '~> 1.5.0'
 gem 'kaminari', '~> 0.14.1'
+gem 'simple_form', '~> 2.1.0'
