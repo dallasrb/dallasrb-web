@@ -7,6 +7,18 @@ describe Profile do
     @blurb     = "This is my sample blurb is it is supposed to be about 80 characters in length..."
   end
 
+  describe 'validations' do
+    it 'should allow a blank homepage' do
+      @member.homepage = ''
+      @member.valid?.should be_true
+    end
+
+    it 'should require a protocol if the homepage is present' do
+      @member.homepage = 'www.google.com'
+      @member.valid?.should be_false
+    end
+  end
+
   it "should differentiate organizers and non-organizers" do
     @member.should_not be_organizer
     @organizer.should  be_organizer

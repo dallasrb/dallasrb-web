@@ -14,6 +14,8 @@ group :development do
   gem "quiet_assets", ">= 1.0.1"
   gem "better_errors", ">= 0.6.0"
   gem "binding_of_caller", ">= 0.7.1"
+  gem 'pry-rails'
+  gem 'pry-debugger'
 end
 
 group :development, :test do
@@ -21,8 +23,6 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'zeus'
-  gem 'pry-rails'
-  gem 'pry-debugger'
   gem 'rb-fsevent', '~> 0.9'
   gem 'travis-lint'
 end
@@ -48,3 +48,4 @@ gem 'gmaps4rails', '~> 2.0.0.pre'
 gem 'kramdown'
 gem 'deep_cloneable', '~> 1.5.0'
 gem 'kaminari', '~> 0.14.1'
+gem 'simple_form', '~> 2.1.0'
