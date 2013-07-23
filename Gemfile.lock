@@ -282,7 +282,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sendgrid (>= 1.0.1)
   simple_form (~> 2.1.0)
-  timecop (~> 0.6.2)
+  timecop (~> 0.6.1)
   travis-lint
   uglifier (>= 1.0.3)
   unicorn (>= 4.3.1)

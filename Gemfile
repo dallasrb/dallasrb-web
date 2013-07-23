@@ -32,7 +32,7 @@ group :test do
   gem "database_cleaner", ">= 0.9.1"
   gem "email_spec", ">= 1.4.0"
   gem "factory_girl_rails", "~> 4.2.1"
-  gem "timecop", "~> 0.6.2"
+  gem "timecop", "~> 0.6.1"
 end
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
