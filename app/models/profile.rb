@@ -3,6 +3,7 @@ class Profile < ActiveRecord::Base
   belongs_to :user
 
   validates :name, :presence => true, :on => :update
+  validates :homepage, format: { with: /https?:\/\/.*/, allow_blank: true }
 
   SHORT_BLURB_LENGTH = 85
 
