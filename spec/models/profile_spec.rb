@@ -66,6 +66,28 @@ describe Profile do
     Profile.resort_members!
     Profile.resort_members!
     Profile.non_organizers.count.should == 20
-  end 
+  end
+
+  context 'validations' do
+    it 'should require name' do
+      @member.save
+      @member.name = ''
+      @member.should_not be_valid
+    end
+
+    it 'should allow blank homepage' do
+      @member.homepage = ''
+      @member.should be_valid
+    end
+
+    it 'should require http protocol if homepage present' do
+      @member.homepage = 'www.google.com'
+      @member.should_not be_valid
+      @member.homepage = 'http://www.google.com'
+      @member.should be_valid
+      @member.homepage = 'https://www.google.com'
+      @member.should be_valid
+    end
+  end
 
 end
