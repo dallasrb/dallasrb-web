@@ -17,7 +17,6 @@ development:
   encoding: unicode
   database: dallasrb-web_development
   pool: 5
-  username: dallasrb-web
   password:
   template: template0
 
