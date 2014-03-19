@@ -16,6 +16,17 @@ puts 'ROLES'
 end
 
 puts 'ORGANIZER PROFILES'
+unless Profile.find_by_name("Christopher Krailo")
+  profile = Profile.create(name: "Christopher Krailo",
+                           blurb: "Krailo is cool, Krailo is hip.",
+                           twitter: "ckrailo",
+                           github: "ckrailo",
+                           email: "ckrailo@gmail.com",
+                           homepage: "http://ckrailo.com",
+                           approved: true)
+  profile.make_organizer!
+end
+
 unless Profile.find_by_name("Mark McSpadden")
   profile = Profile.create(name: "Mark McSpadden",
                          blurb: "Mark is cool, Mark is hip.",
