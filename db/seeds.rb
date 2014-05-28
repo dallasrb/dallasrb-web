@@ -72,7 +72,7 @@ Matt Rogers of McAfee will show us [Jekyll](http://jekyllrb.com).
 
 Mark McSpadden of Sabre Labs will show us [GitHub Pages](http://pages.github.com) and [Heroku Static Site](https://github.com/jamiew/heroku-static-site).
 
-And Chris Krailo of Kalkomey will fill in any gaps as they arise.
+And Chris Krailo will fill in any gaps as they arise.
 
 Hope to see you there!
 EOS
