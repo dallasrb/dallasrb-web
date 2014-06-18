@@ -1,7 +1,19 @@
 <% if should_display_rsvp?(event) %>
   <p>
-    <%= link_to event.rsvp_url, :class => "btn btn-primary btn-large" do %>
-      <i class="icon-envelope"></i> Register to attend
+    <% if event.use_rsvp_system %>
+      <% if has_rsvp_for_event(event) %>
+        <%= link_to remove_rsvp_event_path(event), :class => "btn btn-primary btn-large" do %>
+          <i class="icon-signout"></i> Cancel my Attendance
+        <% end %>
+      <% else %>
+        <%= link_to add_rsvp_event_path(event), :class => "btn btn-primary btn-large" do %>
+          <i class="icon-signin"></i> Register to Attend
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to event.rsvp_url, :class => "btn btn-primary btn-large" do %>
+        <i class="icon-envelope"></i> Register to Attend
+      <% end %>
     <% end %>
   </p>
 <% end %>

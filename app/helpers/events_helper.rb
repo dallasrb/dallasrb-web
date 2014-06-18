@@ -42,6 +42,10 @@ module EventsHelper
   end
 
   def should_display_rsvp?(event)
-    (!event.rsvp_url.blank? && !event.event_date.to_date.past?)
+    ((!event.rsvp_url.blank? || event.use_rsvp_system) && !event.event_date.to_date.past?)
+  end
+
+  def has_rsvp_for_event(event)
+    current_user && Rsvp.where(:event_id => event.id, :user_id => current_user.id).count > 0
   end
 end

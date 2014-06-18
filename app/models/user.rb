@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   rolify
   attr_accessible :provider, :uid, :name, :email, :role_ids
   has_one :profile
+  has_many :rsvps, inverse_of: :user
 
   def self.create_with_omniauth(auth)
     created_user = create! do |user|

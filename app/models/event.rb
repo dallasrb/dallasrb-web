@@ -1,12 +1,13 @@
 class Event < ActiveRecord::Base
   extend FriendlyId
   has_many :event_addresses
+  has_many :rsvps, inverse_of: :event
 
   accepts_nested_attributes_for :event_addresses, :allow_destroy => true
 
   belongs_to :event_type
 
-  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :published, :latitude, :longitude, :rsvp_url, :speaker, :title, :event_addresses_attributes, :event_addresses
+  attr_accessible :venue, :address, :description, :event_date, :event_type, :event_type_id, :published, :latitude, :longitude, :use_rsvp_system, :rsvp_url, :speaker, :title, :event_addresses_attributes, :event_addresses
   friendly_id :title, use: :slugged
 
   validates_associated :event_type

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512155901) do
+ActiveRecord::Schema.define(:version => 20140611004258) do
 
   create_table "event_addresses", :force => true do |t|
     t.integer  "event_id"
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(:version => 20130512155901) do
     t.string   "slug"
     t.string   "rsvp_url"
     t.boolean  "published"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.boolean  "use_rsvp_system"
   end
 
   add_index "events", ["slug"], :name => "index_events_on_slug"
@@ -70,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20130512155901) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "rsvps", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

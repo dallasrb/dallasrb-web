@@ -1,0 +1,12 @@
+<div class="row-fluid">
+  <span class="pull-left">
+    <% if event.rsvps.empty? %>
+      <p><strong>No Registered Attendees</strong></p>
+    <% else %>
+      <p><strong>Registered Attendees (<%= event.rsvps.count %>)</strong></p>
+        <% event.rsvps.each do |rsvp| %>
+          <img src="<%= gravatar_for(rsvp.user.profile.email) %>" class="img-circle" />
+        <% end %>
+    <% end %>
+  </span>
+</div>
