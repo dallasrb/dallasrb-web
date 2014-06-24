@@ -13,8 +13,8 @@ DallasrbWeb::Application.routes.draw do
     end
 
     member do
-      get "add_rsvp"
-      get "remove_rsvp"
+      post 'rsvp/add', to: 'events/rsvps#create'
+      delete 'rsvp/remove', to: 'events/rsvps#destroy'
     end
   end
 
