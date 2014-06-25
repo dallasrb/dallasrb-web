@@ -26,8 +26,10 @@
       </div>
     </div>
 
-    <hr />
+    <% if event.use_rsvp_system %>
+      <hr />
 
-    <%= render 'events/rsvp_list', :event => event %>
+      <%= render 'events/rsvp_list', :event => event %>
+    <% end %>
   </div>
 </div>
