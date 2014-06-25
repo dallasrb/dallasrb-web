@@ -17,8 +17,14 @@
     <%= f.text_area :description, :class => "input-block-level", :rows => 15 %>
     <%= f.label :speaker %>
     <%= f.text_field :speaker, :class => "input-block-level" %>
-    <%= f.label "Plancast URL" %>
-    <%= f.text_field :rsvp_url %>
+    <%= f.label :use_rsvp_system, :class => "checkbox" do %>
+      <%= f.check_box :use_rsvp_system, :id => "use_rsvp_system", :checked => true %>
+      Use RSVP System
+    <% end %>
+    <div id="plancast_url" style="display: none;">
+      <%= f.label "Plancast URL" %>
+      <%= f.text_field :rsvp_url %>
+    </div>
     <%= f.label :published, :class => "checkbox" do %>
       <%= f.check_box :published %>
       Published
@@ -35,11 +41,18 @@
   <%= link_to "Cancel", admin_events_url %>
 <% end %>
 
-<script>
-   $(".form_datetime").datetimepicker({
-     format: "yyyy-MM-dd HH:ii P",
-     showMeridian: true,
-     autoclose: true,
-     todayBtn: true
-   });
-</script>
+<% content_for :scripts do %>
+  <script>
+    $(".form_datetime").datetimepicker({
+      format: "yyyy-MM-dd HH:ii P",
+      showMeridian: true,
+      autoclose: true,
+      todayBtn: true
+    });
+    $(document).ready(function () {
+      $('#use_rsvp_system').change(function () {
+        $('#plancast_url').fadeToggle();
+      });
+    });
+  </script>
+<% end %>

@@ -11,6 +11,11 @@ DallasrbWeb::Application.routes.draw do
     collection do
       get "current"
     end
+
+    member do
+      post 'rsvp/add', to: 'events/rsvps#create'
+      delete 'rsvp/remove', to: 'events/rsvps#destroy'
+    end
   end
 
   namespace :admin do
