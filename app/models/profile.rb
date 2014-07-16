@@ -3,7 +3,6 @@ class Profile < ActiveRecord::Base
   belongs_to :user
 
   validates :name, :presence => true, :on => :update
-  validates :homepage, format: { with: /https?:\/\/.*/, allow_blank: true }
 
   SHORT_BLURB_LENGTH = 85
 
@@ -41,7 +40,7 @@ class Profile < ActiveRecord::Base
     self.update_attribute(:approved, true)
   end
 
-  def save_with_epic_sort(args={}) 
+  def save_with_epic_sort(args={})
     assign_attributes(args)
     epic_sort
     save
