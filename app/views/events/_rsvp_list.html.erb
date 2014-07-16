@@ -5,7 +5,7 @@
     <% else %>
       <p><strong>Registered Attendees (<%= event.rsvps.count %>)</strong></p>
         <% event.rsvps.each do |rsvp| %>
-          <img title="<%= rsvp.user.profile.name %>" alt="<%= rsvp.user.profile.name %> has RSVPed." src="<%= gravatar_for(rsvp.user.profile.email) %>" class="img-circle" />
+          <img <%= "title=\"#{rsvp.user.profile.name}\" alt=\"#{rsvp.user.profile.name} has RSVPed.\"".html_safe if rsvp.user.profile.name %>src="<%= gravatar_for(rsvp.user.profile.email) %>" class="img-circle" />
         <% end %>
     <% end %>
   </span>
