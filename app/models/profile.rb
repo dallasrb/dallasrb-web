@@ -41,7 +41,7 @@ class Profile < ActiveRecord::Base
     self.update_attribute(:approved, true)
   end
 
-  def save_with_epic_sort(args={}) 
+  def save_with_epic_sort(args={})
     assign_attributes(args)
     epic_sort
     save
@@ -50,9 +50,11 @@ class Profile < ActiveRecord::Base
 private
   def epic_sort
     return if organizer?
-    epic_length      = 80 + Random.rand(20)
-    bio_length       = blurb.present? ? blurb.length : 0
-    score            = (epic_length - bio_length).abs
-    self.sort_order  = score
+    score = Random.rand(20)
+    score += 100 + Random.rand(20) if name.blank?
+    score += Random.rand(20) if blurb.blank?
+    score += Random.rand(20) if twitter.blank?
+    score += Random.rand(20) if homepage.blank?
+    self.sort_order = score
   end
 end
