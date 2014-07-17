@@ -27,14 +27,14 @@ describe Profile do
     @member.save_with_epic_sort
 
     @member.reload
-    @member.sort_order.should be_between(0, 20)
+    @member.sort_order.should be_between(0, 100)
   end
 
   it "should update attributes when saving with epic" do
     @member.save_with_epic_sort({blurb: @blurb, name: 'sample'})
 
     @member.reload
-    @member.sort_order.should be_between(0, 20)
+    @member.sort_order.should be_between(0, 100)
     @member.name.should == 'sample'
   end
 
@@ -52,8 +52,8 @@ describe Profile do
     @member.reload
     @member_2.reload
 
-    @member.sort_order.should   be_between(0, 20)
-    @member_2.sort_order.should be_between(0, 20)
+    @member.sort_order.should   be_between(0, 100)
+    @member_2.sort_order.should be_between(0, 100)
   end
 
   it "should not show non-organizers more than once" do
