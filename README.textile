@@ -65,4 +65,4 @@ h2. MIT License
 
 The dallasrb-web program is licensed under the terms of the MIT License.
 
-Copyright © 2013 Dallas Ruby Brigade
+Copyright © 2014 Dallas Ruby Brigade
