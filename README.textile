@@ -8,7 +8,7 @@ h2. Ruby on Rails
 This application requires:
 
 * Ruby version 1.9.3
-* Rails version 3.2.12
+* Rails version 3.2.21
 
 Learn more about "Installing Rails":http://railsapps.github.com/installing-rails.html.
 
