@@ -11,7 +11,7 @@ describe Profile do
     @member.should_not be_organizer
     @organizer.should  be_organizer
   end
-  
+
   it "should leave the organizers sort order as is when saved" do
     @organizer.name       = "sample"
     @organizer.sort_order = 3
@@ -79,15 +79,7 @@ describe Profile do
       @member.homepage = ''
       @member.should be_valid
     end
-
-    it 'should require http protocol if homepage present' do
-      @member.homepage = 'www.google.com'
-      @member.should_not be_valid
-      @member.homepage = 'http://www.google.com'
-      @member.should be_valid
-      @member.homepage = 'https://www.google.com'
-      @member.should be_valid
-    end
+   end
   end
 
 end

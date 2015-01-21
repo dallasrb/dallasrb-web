@@ -9,7 +9,7 @@
       <%- unless profile.homepage.blank? -%>
         <li>
           <i class="icon-home"></i>
-          <a href="<%= profile.homepage %>">Website</a>
+          <a href="<%= "http://" unless profile.homepage =~ /^https?:\/\/.*/ %><%= profile.homepage %>">Website</a>
         </li>
       <%- end -%>
 

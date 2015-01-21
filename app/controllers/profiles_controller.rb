@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   #user must be signed in to edit the profile
   before_filter :authenticate_user!, except:[:index]
-  
+
   def index
     @profiles = Profile.non_organizers.order('sort_order asc, name asc').page(params[:page]).per(8)
   end
@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
     if @profile.save_with_epic_sort(params[:profile])
       redirect_to [:edit, @profile], :notice => "Profile saved."
     else
+      flash.now[:error] = "Please fix the following error(s): " + @profile.errors.full_messages.join(", ").downcase + "."
       render :edit
     end
   end
