@@ -46,17 +46,19 @@
 
 <hr />
 
-<div class"row-fluid">
-  <div class="span11 offset1">
-    <h2>Upcoming</h2>
-    <%= render "events/#{@current_event.event_type.name}_event", :event => @current_event %>
+<% if @current_event %>
+  <div class"row-fluid">
+    <div class="span11 offset1">
+      <h2>Upcoming</h2>
+      <%= render "events/#{@current_event.event_type.name}_event", :event => @current_event %>
+    </div>
   </div>
-</div>
 
-<% content_for :scripts do %>
-  <script>
-  <% @current_event.event_addresses.each do |event_address| %>
-    events.init_map("<%=j marker_for(event_address) %>");
+  <% content_for :scripts do %>
+    <script>
+    <% @current_event.event_addresses.each do |event_address| %>
+      events.init_map("<%=j marker_for(event_address) %>");
+    <% end %>
+    </script>
   <% end %>
-  </script>
 <% end %>
