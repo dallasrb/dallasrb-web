@@ -4,8 +4,7 @@ rvm:
 env:
   - DB=postgresql
 before_script:
-  - psql -c 'create database dallasrb_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
+  - RAILS_ENV=test bundle exec rake db:create db:migrate db:test:prepare
   - bundle exec rspec spec/
