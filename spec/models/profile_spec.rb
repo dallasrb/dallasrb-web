@@ -79,7 +79,6 @@ describe Profile do
       @member.homepage = ''
       @member.should be_valid
     end
-   end
   end
 
 end
