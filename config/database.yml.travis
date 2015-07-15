@@ -1,7 +1,0 @@
-test:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: dallasrb-web_test
-  username: postgres
-  password:
