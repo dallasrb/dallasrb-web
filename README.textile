@@ -1,4 +1,6 @@
 h1. Dallas Ruby Brigade website.
+
+!https://badges.gitter.im/Join%20Chat.svg(Join the chat at https://gitter.im/dallasrb/dallasrb-web)!:https://gitter.im/dallasrb/dallasrb-web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 !https://travis-ci.org/dallasrb/dallasrb-web.png?branch=master!:https://travis-ci.org/dallasrb/dallasrb-web "!https://codeclimate.com/github/dallasrb/dallasrb-web.png!":https://codeclimate.com/github/dallasrb/dallasrb-web
 
 This application powers the Dallasrb.org website.
