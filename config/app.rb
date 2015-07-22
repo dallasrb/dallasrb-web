@@ -23,7 +23,7 @@ Volt.configure do |config|
   #
   # config.app_secret = ENV['APP_SECRET']
   #
-  config.app_secret = 'f-Icdh_jOvchJa5eXwSDBXJgVEc1U-0ojye0hR2Tb3qj85gSfEzDXv_X-TZ38E4PIRg'
+  config.app_secret = ENV['APP_SECRET'] || 'f-Icdh_jOvchJa5eXwSDBXJgVEc1U-0ojye0hR2Tb3qj85gSfEzDXv_X-TZ38E4PIRg'
 
   ###############
   # Log Filtering
